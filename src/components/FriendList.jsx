@@ -1,15 +1,19 @@
 import FriendListItem from './FriendListItem';
 
-const FriendList = ({ avatar, name, isOnline
-}) => {
-    return (
-        <ul>
-	<li>
-		<FriendListItem avatar={avatar} name={name} status={isOnline}  />
-	</li>
-</ul>
-    );
+const FriendList = ({ friends }) => {
+  return (
+    <ul>
+      {friends.map(friend => {
+        <li key={friend.id}>
+          <FriendListItem
+            avatar={friend.avatar}
+            name={friend.name}
+            status={friend.isOnline}
+          />
+        </li>;
+      })}
+    </ul>
+  );
 };
 
 export default FriendList;
-
